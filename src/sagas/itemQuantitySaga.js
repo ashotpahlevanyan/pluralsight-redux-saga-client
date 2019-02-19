@@ -34,7 +34,7 @@ export function* handleDecreaseItemQuantity({id, local}) {
 
 	yield put(setItemQuantityFetchStatus(FETCHING));
 	const user = yield select(currentUserSelector);
-	const response = yield call(fetch, `http://localhost:8081/cart/add/${user.get('id')}/${id}`);
+	const response = yield call(fetch, `http://localhost:8081/cart/remove/${user.get('id')}/${id}`);
 
 	if(response.status !== 200) {
 		console.warn("Received non-200 status:: ", response);
